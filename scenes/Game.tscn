@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbhms18kfyhq8"]
+
+[ext_resource type="PackedScene" uid="uid://br0pawm5pqi8d" path="res://scenes/knight.tscn" id="1_ddtkj"]
+[ext_resource type="Script" path="res://scripts/knight.gd" id="2_eb3bw"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_v76hg"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Knight" parent="." instance=ExtResource("1_ddtkj")]
+script = ExtResource("2_eb3bw")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_v76hg")
